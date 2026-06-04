@@ -24,7 +24,7 @@ import java.util.PriorityQueue;
 public class DSLDEV extends Configured implements Tool
 {
 
-    //Job1
+
     public static class Mapper1 extends Mapper<Object, Text, Text, DsldevWritable>
     {
 
@@ -36,6 +36,8 @@ public class DSLDEV extends Configured implements Tool
         {
             //Input: s,d,p
             String[] input = value.toString().split(",");
+            if (input.length!=8) return;
+
             String day = input[0].substring(0,input[0].indexOf(' '));
             String station = input[1];
             double price = Double.parseDouble(input[2]);
